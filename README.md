@@ -72,66 +72,54 @@ hand_length
 hand_width
 - horizontal length of hand
 
+
 ### # 1 Import Libraries
 - Pandas, NumPy, Matplotlib, SciPy, Seaborn, Plotly, Scikit-learn
-<img src="images/Libraries.png"/>
+
 
 ### # 2 Import & Clean Data
 - Dropped Hand Length and blank columns messing up data
 - Identified NAN's and blank columns then filled and replaced with means
 
-<img src="images/clean_data.png"/>
 
-### # 3 Visualize
-- Plotted ranks of all protocols and anthros to see distribution
+### # 3 Visualize - Pairplot
+- Plotted all protocols and anthros to see distribution
+- Pairplot shows us trends and validates our summary at the end
 - Plotted to find more outliers/data that did not make sense
-
-<img src="images/av_rank.png"/>
-
-### # More Visualization - Violin Plots
 - Created 2 similar violin plots for each parameter with respect to BAMScore
 
-<img src="images/violin_plot.png"/>
-<img src="images/rs_violin.png"/>
+<img src="images/pairplot.png"/>
 
-### # 4 More cleaning + scaling training data
-- Removed outliers
-- Scaled training data
+### # 4 Normalizing Data
+- Normalize training data and scale it between [0,1]
 
-<img src="images/clean_4_way.png"/>
-<img src="images/clean_4_way_1.png"/>
+### # 5 Feature Importance Analysis
+- Height and agility tests are the most important features
+- We found a list of 7 features that are the most important
+- 3/4 court sprint, reaction shuttle, 4 way agility, vertical jump, approach vertical, hand width and hand length
 
-### # 5 Created OLS Regression Model
-- Goal: figure out most important features in model
+<img src="images/best7.png"/>
 
-### #6 Iterated Model and added random forrest model
+### # 6 Modeling
+- Build Baseline model
+- Goal: figure out most important features in model that can predict bamscore
+- I want to know which factors to work on in order to improve bamscore so I can tell the coaches what to help the athletes improve
 
-### # 7 Feature Importance Analysis
-- Reaction Shuttle is the most important feature and highest delineator for rank
+### #7 Iterated Model and added random forrest model
+- Iterated model and tried different model types to mainly increase r2 and coeff
 
-<img src="images/feature.png"/>
+<img src="images/summary_models.png"/>
 
-- Plotted reaction shuttle with respect to BAMScore
-
-<img src="images/lmplot_reaction_shuttle.png"/>
-
-#### Feature Importance Results
-- .53 r2 test and .63 train
-
-### # 8 Scatter Matrix
-- Created scatter matrix across all ranked columns to try and visualize more trends by looking for 45 degree patterns
-
-<img src="images/scatter.png"/>
-
-
-### # 13 Conclusion and Insight
-- Vertical jump is not important for delineating BAMScores
-- Reaction shuttle and 4-Way agility are the most important protocols that delineate BAMScores
+### # 8 Conclusion and Insight
+- Reaction shuttle, 3/4 court sprint, and 4-Way agility are the most important protocols that delineate BAMScores
 - Overall On average, shorter athletes have better scores (except vertical jump and approach vertical)
 - Shorter athletes are much better at agility/fast twitch based protocols
+- Some multicollinearity with using both jump test data but they are both very important and part of top 5
 
 
 ## Future Work
-- add more iterations to models
-- spend time with more important features
-- test it via classifier instead
+- add more iterations to models to increase r2 closer to .8
+- Calculate actual numerical value that would increase bam score rather than just knowing which factors will increase bamscore the most
+- Create email system to spit out summary and send to coaches and players
+- Spend time with just protocols
+- Test model via classifier instead using rank method from first project build

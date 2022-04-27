@@ -108,7 +108,7 @@ hand_width
 ### #7 Iterated Model and added random forrest model
 - Iterated model and tried different model types to mainly increase r2 and coeff
 
-<img src="images/summary_models.png"/>
+<img src="images/summary_model.png"/>
 
 ### # 8 Conclusion and Insight
 - Reaction shuttle, 3/4 court sprint, and 4-Way agility are the most important protocols that delineate BAMScores
